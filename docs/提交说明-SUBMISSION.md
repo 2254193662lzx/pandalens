@@ -39,6 +39,7 @@ PandaLens/
     make-pdf.js             由 Markdown 生成 PDF
     make-docx.py            由 Markdown 生成 DOCX
     md.js / preview.js      文档工具链
+    package.py              打包提交压缩包
   docs/                     关键亮点说明（md / pdf / docx）与页面预览图
   video/                    演示视频与字幕
 ```
@@ -64,7 +65,7 @@ python -m http.server 8899
 `PandaLens-亮点说明.pdf`（6 页，推荐阅读）／`.docx`（Word）／`.md`（Markdown 源文件）。
 
 内容涵盖：设计动机、23 种可视化 pandas 操作、自动生成可运行 pandas 代码的翻译规则与验证结果、
-620 项统计量与 pandas 的比对结论、12 类图形的分析用途、交互细节、双语实现方式、技术实现与已知限制。
+620 项统计量与 pandas 的比对结论、13 类图形的分析用途、交互细节、双语实现方式、技术实现与已知限制。
 
 ## 质量自述 · Verification
 
