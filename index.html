@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PandaLens · 浏览器里的可视化 pandas</title>
+<meta name="description" content="PandaLens — a visual pandas workbench in the browser. Load any table, explore it with charts, and export the equivalent pandas code. 浏览器中的可视化 pandas 数据分析工作台。">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%233b6df6'/><path d='M5 17V11M10 17V6M14 17V9M19 17V4' stroke='white' stroke-width='2.2' stroke-linecap='round'/></svg>">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ============================================================ top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round">
+          <path d="M4 19V12M9.3 19V5M14.6 19V9M20 19V3"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>PandaLens</h1>
+        <span data-i18n="app.subtitle"></span>
+      </div>
+    </div>
+
+    <div class="dataset-chip" id="dataset-chip" title=""></div>
+    <div class="topbar-spacer"></div>
+
+    <button class="icon-btn" id="btn-undo" data-i18n-title="header.undo"></button>
+    <button class="icon-btn" id="btn-redo" data-i18n-title="header.redo"></button>
+    <span class="seg" id="lang-switch" role="group"></span>
+    <button class="icon-btn" id="btn-theme" data-i18n-title="header.theme"></button>
+    <button class="btn" id="btn-export" data-i18n="header.export" data-i18n-icon="download"></button>
+    <button class="icon-btn" id="btn-help" data-i18n-title="header.help"></button>
+  </header>
+
+  <!-- =============================================================== rail -->
+  <nav class="rail">
+    <div class="rail-label" data-i18n="nav.workflow"></div>
+    <div id="nav-list"></div>
+    <div class="rail-spacer"></div>
+    <div class="rail-card" id="rail-summary"></div>
+  </nav>
+
+  <!-- =============================================================== main -->
+  <main class="main" id="main">
+
+    <section class="view active" id="view-load"></section>
+    <section class="view" id="view-table"></section>
+    <section class="view" id="view-profile"></section>
+    <section class="view" id="view-visualize"></section>
+    <section class="view" id="view-pipeline"></section>
+    <section class="view" id="view-code"></section>
+
+  </main>
+
+  <!-- ============================================================= status -->
+  <footer class="statusbar" id="statusbar"></footer>
+</div>
+
+<div id="drop-overlay"></div>
+<input type="file" id="file-input" accept=".csv,.tsv,.txt,.json,.xlsx,.xls" class="hidden">
+
+<script src="vendor/papaparse.min.js"></script>
+<script src="vendor/echarts.min.js"></script>
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/expr.js"></script>
+<script src="js/dataframe.js"></script>
+<script src="js/ops.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/datasets.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
