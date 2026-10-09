@@ -270,7 +270,9 @@
     const ae = document.activeElement;
     if (!ae || ae === document.body) return null;
     const step = ae.closest ? ae.closest('.step') : null;
+    const condRow = ae.closest ? ae.closest('.cond-row') : null;
     return {
+      condIndex: condRow ? condRow.dataset.ci : null,
       p: ae.dataset ? ae.dataset.p : null,
       kind: ae.dataset ? ae.dataset.kind : null,
       cp: ae.dataset ? ae.dataset.cp : null,
@@ -296,7 +298,9 @@
       if (step) el = step.querySelector(`[data-p="${desc.p}"]`);
     }
     if (!el && desc.p) el = $(`[data-p="${desc.p}"]`);
-    if (!el && desc.cp && desc.ci !== null && desc.ci !== undefined) el = $(`[data-ci="${desc.ci}"] [data-cp="${desc.cp}"]`);
+    if (!el && desc.cp && desc.condIndex !== null && desc.condIndex !== undefined) {
+      el = $(`.cond-row[data-ci="${desc.condIndex}"] [data-cp="${desc.cp}"]`);
+    }
     if (el && el.focus) {
       el.focus();
       if (desc.selStart !== null && el.setSelectionRange) {
@@ -1686,6 +1690,28 @@
     // table controls
     if (el.id === 'table-search') return;
     if (el.id === 'page-size') { state.table.pageSize = el.value === 'all' ? 'all' : Number(el.value); state.table.page = 1; render(); return; }
+
+    // Visual filter builder: changing a condition's column or operator must apply
+    // at once, and changing the operator swaps in different value controls.
+    const condRowEl = el.closest ? el.closest('.cond-row') : null;
+    if (condRowEl && el.dataset && el.dataset.cp) {
+      const stepEl2 = el.closest('.step');
+      if (!stepEl2) return;
+      const step2 = state.pipeline.find((s) => s.id === stepEl2.dataset.stepId);
+      if (!step2) return;
+      const ci2 = Number(condRowEl.dataset.ci);
+      step2.params.conditions[ci2] = step2.params.conditions[ci2] || {};
+      step2.params.conditions[ci2][el.dataset.cp] = el.value;
+      if (el.dataset.cp === 'op') {
+        const arity = (DFm.FILTER_OPS[el.value] || { arity: 1 }).arity;
+        if (arity === 0) { step2.params.conditions[ci2].value = ''; step2.params.conditions[ci2].value2 = ''; }
+        else if (arity === 1) step2.params.conditions[ci2].value2 = '';
+      }
+      state.stepError = null;
+      recompute();
+      render({ keepFocus: true });
+      return;
+    }
 
     const kind = el.dataset ? el.dataset.kind : null;
     const pname = el.dataset ? el.dataset.p : null;
