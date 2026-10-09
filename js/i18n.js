@@ -229,7 +229,7 @@
 
     /* ------------------------------------------------------------ visualize */
     'viz.title': ['Visual analysis', '图形分析'],
-    'viz.subtitle': ['Twelve chart families built for data analysis — not decoration.', '十二类为分析而生的图形，而不是装饰。'],
+    'viz.subtitle': ['Thirteen chart families built for data analysis — not decoration.', '十三类为分析而生的图形，而不是装饰。'],
     'viz.chartType': ['Chart type', '图形类型'],
     'viz.params': ['Settings', '图形设置'],
     'viz.insight': ['Automatic insight', '自动洞察'],

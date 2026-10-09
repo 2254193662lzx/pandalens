@@ -2,7 +2,7 @@
 
 **在线地址：** https://2254193662lzx.github.io/pandalens/
 **源代码仓库：** https://github.com/2254193662lzx/pandalens
-**视频：** `PandaLens-demo.mp4`（4 分 45 秒，中文讲解，含字幕，字幕文件 `PandaLens-demo.zh.srt`）
+**视频：** `PandaLens-demo.mp4`（4 分 49 秒，中文讲解，含字幕，字幕文件 `PandaLens-demo.zh.srt`）
 
 ---
 
@@ -140,7 +140,7 @@ PandaLens 中每一个操作都在注册表里同时声明了三件事：**可�
 |---|---|
 | 网站 | https://2254193662lzx.github.io/pandalens/ |
 | 源代码 | `PandaLens-source.zip`（含网站源码、数据、验证脚本） |
-| 视频 | `PandaLens-demo.mp4`（4:45，中文讲解 + 内嵌字幕） |
+| 视频 | `PandaLens-demo.mp4`（4:49，中文讲解 + 内嵌字幕） |
 | 本文档 | `PandaLens-亮点说明.md` / `.docx` / `.pdf` |
 
 项目包含三套自动验证脚本，任何人都可以复现结论：

@@ -53,7 +53,7 @@ python -m http.server 8899
 
 ## 3. 视频 · Demo video
 
-`PandaLens-demo.mp4` — 时长 4 分 52 秒（限制 5 分钟），中文讲解，内嵌字幕。
+`PandaLens-demo.mp4` — 时长 4 分 49 秒（限制 5 分钟），中文讲解，内嵌字幕。
 字幕文件：`PandaLens-demo.zh.srt`。
 
 讲解顺序：加载数据 → 数据表交互 → 列菜单生成 pandas 步骤 → 统计剖析 → 缺失值工具箱 →

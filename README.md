@@ -16,7 +16,7 @@ in Chinese and English.
 | **23 pandas operations as visual steps** | 23 种 pandas 操作可视化搭建：筛选、排序、去重、缺失值填充、类型转换、计算列、文本处理、日期拆分、分箱、移动窗口、分组聚合、透视表、melt、关联、相关系数矩阵…… |
 | **Live pipeline** | 每一步实时显示输出行数与增减量，可拖拽排序、停用、复制；某一步出错只影响该步并给出原因，后续步骤自动暂停 |
 | **Runnable pandas code** | 流水线自动翻译成可直接运行的 pandas 脚本（已与真实 pandas 逐值比对） |
-| **12 chart families** | 直方图 / 柱状 / 折线 / 散点 / 箱线 / 饼图 / 相关热力图 / 透视热力图 / 缺失值地图 / 散点矩阵 / 平行坐标 / 矩形树图 / 雷达图，每个图都带自动洞察与点击下钻 |
+| **13 chart families** | 直方图 / 柱状 / 折线 / 散点 / 箱线 / 饼图 / 相关热力图 / 透视热力图 / 缺失值地图 / 散点矩阵 / 平行坐标 / 矩形树图 / 雷达图，每个图都带自动洞察与点击下钻 |
 | **Missing-data toolkit** | 缺失矩阵（按缺失程度排序）、按列缺失条形图、缺失相关性热力图（missingno 风格） |
 | **Statistics verified against pandas** | 620 项统计量与 pandas 逐项比对，最大相对偏差 1.2 × 10⁻¹² |
 | **Bilingual, offline, private** | 中英文内容完全一致（一条文案对应两种语言）；无需服务器，数据不出浏览器 |
@@ -76,4 +76,4 @@ Latest results / 最近一次结果:
 Every operation is declared once in `js/ops.js`, holding three things together: the form controls it shows,
 the function that transforms the frame, and the pandas code it stands for. The palette, the step editor,
 the step summary and the generated script all read from that single declaration, so they cannot drift
-apart. The same idea drives the 12 chart families in `js/charts.js`.
+apart. The same idea drives the 13 chart families in `js/charts.js`.
