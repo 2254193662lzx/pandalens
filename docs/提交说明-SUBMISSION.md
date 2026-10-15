@@ -13,41 +13,38 @@
 
 ## 2. 源代码压缩包 · Source archive
 
-`PandaLens-source.zip`，结构如下：
+`PandaLens-source.zip` —— **只包含网站源码**（15 个文件，0.74 MB），结构如下：
 
 ```
 PandaLens/
-  web/                      网站源码（直接部署这一层即可）
-    index.html              页面骨架
-    css/styles.css          设计系统（浅色 / 深色）
-    js/stats.js             统计内核（与 pandas/numpy 对齐）
-    js/expr.js              表达式语言 + pandas 代码生成器
-    js/dataframe.js         DataFrame 引擎（列式存储）
-    js/ops.js               操作注册表：可视化表单 + 数据效果 + pandas 代码
-    js/charts.js            图形注册表：参数 + ECharts 配置 + 自动洞察
-    js/ui.js                表格、表单控件、菜单、弹窗、迷你图
-    js/app.js               视图、状态、事件
-    js/i18n.js              中英文文案（一条文案对应两种语言）
-    data/                   10 个内置数据集
-    vendor/                 ECharts / PapaParse / SheetJS（本地化，无 CDN 依赖）
-  tools/                    开发与验证工具（非运行必需）
-    probe.js                端到端回归测试（视图/数据集/图形/操作/双语/主题）
-    verify-code.js          用真实 pandas 运行生成的代码并逐值比对
-    verify-stats.js         620 项统计量与 pandas 比对
-    gen-data.js             生成 sales / airquality / stocks 三个数据集
-    record.js               录制讲解视频（TTS 旁白 + 字幕 + 屏幕录制）
-    make-pdf.js             由 Markdown 生成 PDF
-    make-docx.py            由 Markdown 生成 DOCX
-    md.js / preview.js      文档工具链
-    package.py              打包提交压缩包
-  docs/                     关键亮点说明（md / pdf / docx）与页面预览图
-  video/                    演示视频与字幕
+  index.html                页面骨架
+  css/styles.css            设计系统（浅色 / 深色主题）
+  js/stats.js               统计内核（与 pandas/numpy 对齐）
+  js/expr.js                表达式语言 + pandas 代码生成器
+  js/dataframe.js           DataFrame 引擎（列式存储）
+  js/ops.js                 操作注册表：可视化表单 + 数据效果 + pandas 代码
+  js/charts.js              图形注册表：参数 + ECharts 配置 + 自动洞察
+  js/datasets.js            内置数据集目录与示例数据生成器
+  js/ui.js                  表格、表单控件、菜单、弹窗、迷你图
+  js/app.js                 视图、状态、事件
+  js/i18n.js                中英文文案（一条文案对应两种语言）
+  js/icons.js               内置 SVG 图标集
+  vendor/                   ECharts / PapaParse / SheetJS（第三方运行库，本地化，无 CDN 依赖）
 ```
 
-本地运行（需要一个静态服务器，因为内置数据集通过 fetch 加载）：
+`vendor/` 是第三方运行库（图表渲染与文件解析），属于运行网站所必需，因此保留在源码包内；
+如果只需要自己编写的代码，可删掉 `vendor/`（约 0.41 MB），改为安装依赖后使用。
+
+**未包含**（按要求移出）：
+- `data/` 10 个内置数据集 —— 移除后内置数据集卡片无法加载，
+  但网站本身仍可正常使用：可以拖入自己的 CSV / Excel / JSON、粘贴表格、从网址加载，或使用示例数据生成器；
+  线上版本与完整交付包（`PandaLens-full-delivery.zip`）中都带有数据集；
+- `tools/` 验证与录制脚本、`docs/` 文档、`video/` 视频。
+
+本地运行（需要一个静态服务器）：
 
 ```bash
-cd PandaLens/web
+cd PandaLens
 python -m http.server 8899
 # 浏览器打开 http://127.0.0.1:8899/index.html
 ```
