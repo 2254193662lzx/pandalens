@@ -57,6 +57,17 @@ python -m http.server 8899
 讲解顺序：加载数据 → 数据表交互 → 列菜单生成 pandas 步骤 → 统计剖析 → 缺失值工具箱 →
 操作流水线（现场搭建 4 步） → 自动生成的 pandas 代码 → 图形分析与下钻 → 双语与深色模式 → 导出与总结。
 
+**配音 · Voice-over**：中文旁白由开源项目 **edge-tts**（GPL-3.0）的 `zh-CN-XiaoxiaoNeural`
+神经网络语音生成，逐场景合成后按原分镜时长对齐，音画同步误差 < 0.15 秒。
+选型时也评估了完全本地开源的 **Piper**（MIT，ONNX 模型，可离线运行），
+但它的中文语音模型会把夹在中文里的英文术语读错（例如把 “PandaLens” 读成 “办了”），
+而本视频旁白含大量英文术语（pandas / groupby / agg / isin / sort_values / ECharts），
+因此改用对中英混读支持更好的 edge-tts。
+
+**画面未重新编码**：配音只替换了音轨（`-c:v copy`），画面与已烧入的字幕逐帧与原版一致
+（视频流 MD5 相同），因此不需要重新录制或重新渲染。相关脚本见 `tools/dub.py`（配音）、
+`tools/asr-check.py`（用 Whisper 回读校验发音，避免“听起来不对却听不出来”）。
+
 ## 4. 文档 · Highlights document
 
 `PandaLens-亮点说明.pdf`（6 页，推荐阅读）／`.docx`（Word）／`.md`（Markdown 源文件）。
